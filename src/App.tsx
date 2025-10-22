@@ -28,7 +28,7 @@ const App = () => (
       <LanguageProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <BrowserRouter basename="/iba-porto-website">
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">
