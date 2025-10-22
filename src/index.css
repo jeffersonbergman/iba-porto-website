@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 216 48.7% 22.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 48.7% 22.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 48.7% 22.9%;
+
+    --primary: 341 70.8% 28.2%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 216 48.7% 22.9%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 341 70.8% 28.2%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 341 70.8% 28.2%;
+
+    --radius: 0.75rem;
+
+    /* Custom church colors */
+    --church-primary: 341 70.8% 28.2%;
+    --church-primary-light: 341 70.8% 40%;
+    --church-secondary: 216 48.7% 22.9%;
+    --church-secondary-light: 216 48.7% 35%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(341 70.8% 28.2%) 0%, hsl(341 70.8% 40%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(216 48.7% 22.9%) 0%, hsl(216 48.7% 35%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(341 70.8% 28.2% / 0.95) 0%, hsl(216 48.7% 22.9% / 0.95) 100%);
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 8px hsl(341 70.8% 28.2% / 0.1);
+    --shadow-md: 0 4px 16px hsl(341 70.8% 28.2% / 0.15);
+    --shadow-lg: 0 8px 32px hsl(341 70.8% 28.2% / 0.2);
+    
+    /* Transitions */
+    --transition-base: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 216 48.7% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 216 48.7% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 216 48.7% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 341 70.8% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 216 48.7% 35%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 216 48.7% 20%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 341 70.8% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 216 48.7% 25%;
+    --input: 216 48.7% 25%;
+    --ring: 341 70.8% 45%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .transition-base {
+    transition: var(--transition-base);
+  }
+  
+  .shadow-elegant {
+    box-shadow: var(--shadow-md);
+  }
+}
+
+/* React Quill Editor Styles */
+.ql-container {
+  @apply border-input;
+  min-height: 300px;
+  font-size: 16px;
+}
+
+.ql-editor {
+  min-height: 300px;
+  @apply text-foreground;
+}
+
+.ql-toolbar {
+  @apply border-input bg-muted/30;
+}
+
+.ql-snow .ql-stroke {
+  @apply stroke-foreground;
+}
+
+.ql-snow .ql-fill {
+  @apply fill-foreground;
+}
+
+.ql-snow .ql-picker-label {
+  @apply text-foreground;
+}
+
+.ql-snow .ql-picker-options {
+  @apply bg-popover border-input;
+}
+
+.ql-snow .ql-picker-item:hover {
+  @apply text-primary;
+}
+
+.ql-editor.ql-blank::before {
+  @apply text-muted-foreground;
+}
